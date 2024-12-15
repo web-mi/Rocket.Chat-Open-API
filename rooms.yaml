@@ -263,19 +263,7 @@ paths:
                           md:
                             type: array
                             items:
-                              type: object
-                              properties:
-                                type:
-                                  type: string
-                                value:
-                                  type: array
-                                  items:
-                                    type: object
-                                    properties:
-                                      type:
-                                        type: string
-                                      value:
-                                        type: string
+                              $ref: '#/components/schemas/Markdown'
                       lm:
                         type: string
                   success:
@@ -574,19 +562,7 @@ paths:
                         md:
                           type: array
                           items:
-                            type: object
-                            properties:
-                              type:
-                                type: string
-                              value:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    type:
-                                      type: string
-                                    value:
-                                      type: string
+                            $ref: '#/components/schemas/Markdown'
                   count:
                     type: integer
                   offset:
@@ -1319,19 +1295,7 @@ paths:
                           md:
                             type: array
                             items:
-                              type: object
-                              properties:
-                                type:
-                                  type: string
-                                value:
-                                  type: array
-                                  items:
-                                    type: object
-                                    properties:
-                                      type:
-                                        type: string
-                                      value:
-                                        type: string
+                              $ref: '#/components/schemas/Markdown'
                       lm:
                         type: string
                   success:
@@ -1670,19 +1634,7 @@ paths:
                           md:
                             type: array
                             items:
-                              type: object
-                              properties:
-                                type:
-                                  type: string
-                                value:
-                                  type: array
-                                  items:
-                                    type: object
-                                    properties:
-                                      type:
-                                        type: string
-                                      value:
-                                        type: string
+                              $ref: '#/components/schemas/Markdown'
                       lm:
                         type: string
                   success:
@@ -1829,19 +1781,7 @@ paths:
                           md:
                             type: array
                             items:
-                              type: object
-                              properties:
-                                type:
-                                  type: string
-                                value:
-                                  type: array
-                                  items:
-                                    type: object
-                                    properties:
-                                      type:
-                                        type: string
-                                      value:
-                                        type: string
+                              $ref: '#/components/schemas/Markdown'
                       lm:
                         type: string
                   success:
@@ -2077,19 +2017,7 @@ paths:
                             md:
                               type: array
                               items:
-                                type: object
-                                properties:
-                                  type:
-                                    type: string
-                                  value:
-                                    type: array
-                                    items:
-                                      type: object
-                                      properties:
-                                        type:
-                                          type: string
-                                        value:
-                                          type: string
+                                $ref: '#/components/schemas/Markdown'
                         topic:
                           type: string
                         muted:
@@ -2235,19 +2163,7 @@ paths:
                             md:
                               type: array
                               items:
-                                type: object
-                                properties:
-                                  type:
-                                    type: string
-                                  value:
-                                    type: array
-                                    items:
-                                      type: object
-                                      properties:
-                                        type:
-                                          type: string
-                                        value:
-                                          type: string
+                                $ref: '#/components/schemas/Markdown'
                             groupable:
                               type: boolean
                             blocks:
@@ -2632,19 +2548,7 @@ paths:
                         md:
                           type: array
                           items:
-                            type: object
-                            properties:
-                              type:
-                                type: string
-                              value:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    type:
-                                      type: string
-                                    value:
-                                      type: string
+                            $ref: '#/components/schemas/Markdown'
                         replies:
                           type: array
                           items:
@@ -3444,19 +3348,7 @@ paths:
                           md:
                             type: array
                             items:
-                              type: object
-                              properties:
-                                type:
-                                  type: string
-                                value:
-                                  type: array
-                                  items:
-                                    type: object
-                                    properties:
-                                      type:
-                                        type: string
-                                      value:
-                                        type: string
+                              $ref: '#/components/schemas/Markdown'
                       lm:
                         type: string
                       announcement:
@@ -3796,19 +3688,7 @@ paths:
                           md:
                             type: array
                             items:
-                              type: object
-                              properties:
-                                type:
-                                  type: string
-                                value:
-                                  type: array
-                                  items:
-                                    type: object
-                                    properties:
-                                      type:
-                                        type: string
-                                      value:
-                                        type: string
+                              $ref: '#/components/schemas/Markdown'
                       lm:
                         type: string
                       announcement:
@@ -4297,24 +4177,7 @@ paths:
                         md:
                           type: array
                           items:
-                            type: object
-                            properties:
-                              type:
-                                type: string
-                              value:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    type:
-                                      type: string
-                                    value:
-                                      type: object
-                                      properties:
-                                        type:
-                                          type: string
-                                        value:
-                                          type: string
+                            $ref: '#/components/schemas/Markdown'
                   count:
                     type: integer
                   offset:
@@ -5168,19 +5031,7 @@ paths:
                             md:
                               type: array
                               items:
-                                type: object
-                                properties:
-                                  type:
-                                    type: string
-                                  value:
-                                    type: array
-                                    items:
-                                      type: object
-                                      properties:
-                                        type:
-                                          type: string
-                                        value:
-                                          type: string
+                                $ref: '#/components/schemas/Markdown'
                         lm:
                           type: string
                   count:
@@ -5369,42 +5220,7 @@ paths:
                             md:
                               type: array
                               items:
-                                type: object
-                                properties:
-                                  type:
-                                    type: string
-                                  value:
-                                    type: array
-                                    items:
-                                      type: object
-                                      properties:
-                                        type:
-                                          type: string
-                                        value:
-                                          type: string
-                                          items:
-                                            type: object
-                                            properties:
-                                              type:
-                                                type: string
-                                              value:
-                                                type: string
-                                              src:
-                                                type: object
-                                                properties:
-                                                  type:
-                                                    type: string
-                                                  value:
-                                                    type: string
-                                              label:
-                                                type: array
-                                                items:
-                                                  type: object
-                                                  properties:
-                                                    type:
-                                                      type: string
-                                                    value:
-                                                      type: string
+                                $ref: '#/components/schemas/Markdown'
                         lm:
                           type: string
                         uids:
@@ -5783,19 +5599,7 @@ paths:
                       md:
                         type: array
                         items:
-                          type: object
-                          properties:
-                            type:
-                              type: string
-                            value:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  type:
-                                    type: string
-                                  value:
-                                    type: string
+                          $ref: '#/components/schemas/Markdown'
                   success:
                     type: boolean
               examples:
@@ -9084,19 +8888,7 @@ paths:
                             md:
                               type: array
                               items:
-                                type: object
-                                properties:
-                                  type:
-                                    type: string
-                                  value:
-                                    type: array
-                                    items:
-                                      type: object
-                                      properties:
-                                        type:
-                                          type: string
-                                        value:
-                                          type: string
+                                $ref: '#/components/schemas/Markdown'
                         lm:
                           type: string
                         customFields:
@@ -10970,6 +10762,8 @@ paths:
                           type: string
                         groupable:
                           type: boolean
+                        unread:
+                          type: boolean
                   count:
                     type: integer
                   offset:
@@ -12441,6 +12235,34 @@ tags:
   - name: Teams
 
 components:
+  schemas:
+    Markdown:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                $ref: '#/components/schemas/Markdown'
+        src:
+          type: object
+          properties:
+            type:
+              type: string
+            value:
+              type: string
+        label:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              value:
+                type: string
   parameters:
     Optional-RoomId:
       name: roomId
