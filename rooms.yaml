@@ -4270,6 +4270,7 @@ paths:
                           type: string
                         alias:
                           type: string
+                          nullable: true
                         avatar:
                           type: string
                         name:
@@ -9108,6 +9109,7 @@ paths:
                           type: string
                         alias:
                           type: string
+                          nullable: true
                         avatar:
                           type: string
                         name:
@@ -10722,6 +10724,9 @@ paths:
                           type: string
                         msg:
                           type: string
+                        alias:
+                          type: string
+                          nullable: true
                         ts:
                           type: string
                         u:
