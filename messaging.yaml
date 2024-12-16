@@ -2741,6 +2741,8 @@ paths:
                     t:
                       type: string
                       description: The message type e.g. e2e
+                    e2e:
+                      type: string
                     rid:
                       type: string
                       description: The room ID where the message is to be sent.
