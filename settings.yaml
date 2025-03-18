@@ -32,12 +32,7 @@ paths:
                   settings:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        _id:
-                          type: string
-                        value:
-                          $ref: '#/components/schemas/SettingValue'
+                      $ref: '#/components/schemas/Setting'
                   count:
                     type: integer
                   offset:
@@ -197,12 +192,7 @@ paths:
                   settings:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        _id:
-                          type: string
-                        value:
-                          $ref: '#/components/schemas/SettingValue'
+                      $ref: '#/components/schemas/Setting'
                   count:
                     type: integer
                   offset:
@@ -360,14 +350,12 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  _id:
-                    type: string
-                  value:
-                    $ref: '#/components/schemas/SettingValue'
-                  success:
-                    type: boolean
+                allOf:
+                  - $ref: '#/components/schemas/Setting'
+                  - type: object
+                    properties:
+                      success:
+                        type: boolean
               examples:
                 Success Example:
                   value:
@@ -3618,12 +3606,18 @@ components:
         type: string
       description: 'The desired method to get the 2FA code. It can be `email`, `totp`, or `password`.'
   schemas:
-    SettingValue:
-      oneOf:
-        - type: integer
-        - type: string
-        - type: boolean
-        - type: array
+    Setting:
+      type: object
+      properties:
+        _id:
+          type: string
+        value:
+          oneOf:
+            - type: integer
+            - type: string
+            - type: boolean
+            - type: array
+            - type: object
   responses:
     authorizationError:
       description: Unauthorized
