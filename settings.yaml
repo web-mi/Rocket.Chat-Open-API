@@ -37,9 +37,7 @@ paths:
                         _id:
                           type: string
                         value:
-                          oneOf:
-                            - type: boolean
-                            - type: string
+                          $ref: '#/components/schemas/SettingValue'
                   count:
                     type: integer
                   offset:
@@ -204,9 +202,7 @@ paths:
                         _id:
                           type: string
                         value:
-                          oneOf:
-                            - type: boolean
-                            - type: string
+                          $ref: '#/components/schemas/SettingValue'
                   count:
                     type: integer
                   offset:
@@ -369,7 +365,7 @@ paths:
                   _id:
                     type: string
                   value:
-                    type: boolean
+                    $ref: '#/components/schemas/SettingValue'
                   success:
                     type: boolean
               examples:
@@ -3621,7 +3617,13 @@ components:
       schema:
         type: string
       description: 'The desired method to get the 2FA code. It can be `email`, `totp`, or `password`.'
-  schemas: {}
+  schemas:
+    SettingValue:
+      oneOf:
+        - type: integer
+        - type: string
+        - type: boolean
+        - type: array
   responses:
     authorizationError:
       description: Unauthorized
