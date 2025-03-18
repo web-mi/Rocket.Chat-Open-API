@@ -4766,84 +4766,7 @@ paths:
                 type: object
                 properties:
                   room:
-                    type: object
-                    properties:
-                      _id:
-                        type: string
-                      ts:
-                        type: string
-                      t:
-                        type: string
-                      name:
-                        type: string
-                      usernames:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      msgs:
-                        type: integer
-                      usersCount:
-                        type: integer
-                      _updatedAt:
-                        type: string
-                      u:
-                        type: object
-                        properties:
-                          _id:
-                            type: string
-                          username:
-                            type: string
-                          name:
-                            type: string
-                      default:
-                        type: boolean
-                      lastMessage:
-                        type: object
-                        properties:
-                          _id:
-                            type: string
-                          t:
-                            type: string
-                          rid:
-                            type: string
-                          ts:
-                            type: string
-                          msg:
-                            type: string
-                          alias:
-                            type: string
-                            nullable: true
-                          attachments:
-                            type: array
-                            items:
-                              type: object
-                          file:
-                            type: object
-                            properties:
-                              _id:
-                                type: string
-                              name:
-                                type: string
-                              type:
-                                type: string
-                          u:
-                            type: object
-                            properties:
-                              _id:
-                                type: string
-                              username:
-                                type: string
-                              name:
-                                type: string
-                          groupable:
-                            type: boolean
-                          drid:
-                            type: string
-                          _updatedAt:
-                            type: string
-                      lm:
-                        type: string
+                    $ref: '#/components/schemas/Room'
                   success:
                     type: boolean
               examples:
@@ -10687,6 +10610,7 @@ paths:
         - $ref: '#/components/parameters/sort'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/query'
         - name: mentionIds
           in: query
           description: Filter the messages where a user has been mentioned by the userId. For a set of userIds, use an array (`["838ndhd79w", "dud0wu900"]`).
@@ -12241,6 +12165,244 @@ tags:
 
 components:
   schemas:
+    Channel:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The channel ID.
+    LastMessage:
+      description: The last message sent in the room.
+      type: object
+      properties:
+        _id:
+          type: string
+        t:
+          type: string
+        rid:
+          type: string
+        ts:
+          type: string
+        msg:
+          type: string
+        alias:
+          type: string
+          nullable: true
+        attachments:
+          type: array
+          items:
+            type: object
+        file:
+          type: object
+          properties:
+            _id:
+              type: string
+            name:
+              type: string
+            type:
+              type: string
+        u:
+          type: object
+          properties:
+            _id:
+              type: string
+            username:
+              type: string
+            name:
+              type: string
+        groupable:
+          type: boolean
+        drid:
+          type: string
+        _updatedAt:
+          type: string
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The user ID.
+        username:
+          type: string
+          description: The user’s username.
+        name:
+          type: string
+          description: The user’s name.
+    Room:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The room ID.
+        t:
+          type: string
+          description: The room type. E.g c = channel, d = direct message, l = livechat, p=private chat
+        name:
+          type: string
+          description: The room’s name.
+        fname:
+          type: string
+          description: The full name of the room.
+        msgs:
+          type: integer
+          description: The number of messages in the room.
+        default:
+          type: boolean
+          description: Indicates if the room is the default room.
+        broadcast:
+          type: boolean
+          description: Indicates if the room is a broadcast room.
+        featured:
+          type: boolean
+          description: Indicates if the room is featured.
+        announcement:
+          type: string
+          description: The announcement or summary of the room.
+        joinCodeRequired:
+          type: boolean
+          description: Indicates if a join code is required to enter the room.
+        announcementDetails:
+          type: boolean
+          description: Additional details about the room announcement, such as the style.
+        encrypted:
+          type: boolean
+          description: Indicates if the room is encrypted.
+        topic:
+          type: string
+          description: The topic of the room.
+        reactWhenReadOnly:
+          type: boolean
+          description: Indicates if reactions are allowed when the room is read-only.
+        sysMes:
+          description: Indicates whether system messages are enabled or an array of allowed system message types.
+          oneOf:
+            - type: boolean
+            - type: array
+              items:
+                  type: string
+        u:
+          $ref: '#/components/schemas/User'
+        uids:
+          description: Array of user IDs in the room.
+          type: array
+          items:
+            type: string
+        lastMessage:
+          $ref: '#/components/schemas/LastMessage'
+        lm:
+          type: string
+          format: date-time
+          description: Timestamp of the last message.
+        usersCount:
+          type: integer
+          description: The number of users in the room.
+        callStatus:
+          type: string
+          description: The status of a call in the room.
+        webRtcCallStartTime:
+          type: string
+          format: date-time
+          description: The start time of a WebRTC call in the room.
+        servedBy:
+          description: Information about the user who served the room.
+          type: object
+          properties:
+            _id:
+              type: string
+        streamingOptions:
+          description: Options for streaming content in the room.
+          type: object
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+            url:
+              type: string
+            thumbnail:
+              type: string
+            isAudioOnly:
+              type: boolean
+            message:
+              type: string
+        prid:
+          type: string
+          description: The primary room ID (for threads).
+        avatarETag:
+          type: string
+          description: The ETag for the room avatar.
+        teamMain:
+          type: boolean
+          description: Indicates if the room is the main room for a team.
+        teamId:
+          type: string
+          description: The ID of the team the room belongs to.
+        teamDefault:
+          type: boolean
+          description: Indicates if the room is the default room for the team.
+        open:
+          type: boolean
+          description: Indicates if the room is open.
+        autoTranslateLanguage:
+          type: string
+          description: The language used for automatic translation in the room.
+        autoTranslate:
+          type: boolean
+          description: Indicates if automatic translation is enabled for the room.
+        unread:
+          type: integer
+          description: The number of unread messages in the room.
+        alert:
+          type: boolean
+          description: Indicates if there is an alert in the room.
+        hideUnreadStatus:
+          type: boolean
+          description: Indicates if the unread status is hidden.
+        hideMentionStatus:
+          type: boolean
+          description: Indicates if the mention status is hidden.
+        muted:
+          description: An array of user IDs who are muted in the room.
+          type: array
+          items:
+            type: string
+        unmuted:
+          description: An array of user IDs who are not muted in the room.
+          type: array
+          items:
+            type: string
+        usernames:
+          description: An array of usernames in the room.
+          type: array
+          items:
+            type: string
+        ts:
+          type: string
+          format: date-time
+          description: Timestamp of when the room was created.
+        cl:
+          type: boolean
+          description: Indicates if the room is a channel.
+        ro:
+          type: boolean
+          description: Indicates if the room is read-only.
+        favorite:
+          type: boolean
+          description: Indicates if the room is marked as a favorite.
+        archived:
+          type: boolean
+          description: Indicates if the room is archived.
+        description:
+          type: string
+          description: Description or summary of the room.
+        createdOTR:
+          type: boolean
+          description: Indicates if the room was created as an OTR (off-the-record) room.
+        e2eKeyId:
+          type: string
+          description: Key ID for end-to-end encryption in the room.
+        channel:
+          $ref: '#/components/schemas/Channel'
     Markdown:
       type: object
       properties:
