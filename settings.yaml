@@ -3612,12 +3612,7 @@ components:
         _id:
           type: string
         value:
-          oneOf:
-            - type: integer
-            - type: string
-            - type: boolean
-            - type: array
-            - type: object
+          type: string
   responses:
     authorizationError:
       description: Unauthorized
