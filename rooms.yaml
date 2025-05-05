@@ -4947,14 +4947,7 @@ paths:
                             items:
                               type: object
                           file:
-                            type: object
-                            properties:
-                              _id:
-                                type: string
-                              name:
-                                type: string
-                              type:
-                                type: string
+                            $ref: '#/components/schemas/File'
                           u:
                             type: object
                             properties:
@@ -5315,14 +5308,7 @@ paths:
                               items:
                                 $ref: '#/components/schemas/Attachment'
                             file:
-                              type: object
-                              properties:
-                                _id:
-                                  type: string
-                                name:
-                                  type: string
-                                type:
-                                  type: string
+                              $ref: '#/components/schemas/File'
                             u:
                               type: object
                               properties:
@@ -5729,25 +5715,11 @@ paths:
                       msg:
                         type: string
                       file:
-                        type: object
-                        properties:
-                          _id:
-                            type: string
-                          name:
-                            type: string
-                          type:
-                            type: string
+                        $ref: '#/components/schemas/File'
                       files:
                         type: array
                         items:
-                          type: object
-                          properties:
-                            _id:
-                              type: string
-                            name:
-                              type: string
-                            type:
-                              type: string
+                          $ref: '#/components/schemas/File'
                       attachments:
                         type: array
                         items:
@@ -11227,6 +11199,12 @@ paths:
                           type: array
                           items:
                             $ref: '#/components/schemas/Attachment'
+                        files:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/File'
+                        file:
+                          $ref: '#/components/schemas/File'
                   count:
                     type: integer
                   offset:
@@ -12882,6 +12860,16 @@ components:
         description:
           type: string
           example: ''
+    File:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          example: image/png
   parameters:
     Optional-RoomId:
       name: roomId
